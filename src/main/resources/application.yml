@@ -1,0 +1,34 @@
+#VM:   java -jar -Dspring.profiles.active=prod application.jar
+#prog: java -jar application.jar --spring.profiles.active=prd --spring.config.location=c:\config
+spring:
+  profiles:
+    active: "dev"
+server: 
+  error: 
+    include-message: always
+---
+key: dev
+spring:
+  profiles: dev
+  data:
+    mongo-db:
+      auto-index-creation: true
+      authentication-database: admin
+      username: mongodb
+      password: mongodb
+      database: mongodb
+      port: 27017
+      host: localhost
+---
+key: prd
+spring:
+  profiles: prd
+  data:
+    mongo-db:
+      auto-index-creation: true
+      authentication-database: admin
+      username: mongodb
+      password: mongodb
+      database: mongodb
+      port: 27017
+      host: localhost
